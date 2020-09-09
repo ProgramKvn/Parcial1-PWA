@@ -2,9 +2,11 @@
 var InfoIndividual = require('./InfoIndividual');
 var TotalProyecto = require('./TotalProyecto');
 var TotalMateriales = require('./TotalMateriales');
+var Holgura = require('./Holgura');
 
 //Creación de variables 'const' que almacenan el 'return' de módulos
 const VTotalProyecto = TotalProyecto.TotalProyecto([2,2,2, 6], [10,20,40, 45]);
+const VHolgura = Holgura.Holgura(VTotalProyecto);
 
 /*Creación de la función 'PrecioTotal'
 Parámetros usados: 
@@ -21,6 +23,7 @@ function PrecioTotal(M, SP){
 		}
 		else{
 			console.log("El precio total del proyecto es de: $" + VTotalProyecto);
+			console.log("Holgura: $" + VHolgura);
 			console.log("Precio total de los materiales es de $" + PT.SumaMateriales());
 			console.log("Precio total: $" + PT.SumaTotal());
 		}
