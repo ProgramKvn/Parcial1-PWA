@@ -1,8 +1,10 @@
+//Creación de Modulo
 module.exports = (HorasEquipo, PrecioEquipo, callback) => {
 	//Recorriendo el vector para encontrar el error
 	for(var i = 0; i < HorasEquipo.length; i++){
 		if(HorasEquipo[i] < 1 || PrecioEquipo[i] < 1 ){
 			//Callback que regresa un error
+			//Manejo de errores
 			callback(new Error(
 				"\nLa función sólo admite valores mayores a 0. \n" + 
 				"Por favor, ingrese nuevamente los datos para \n" +
@@ -15,7 +17,8 @@ module.exports = (HorasEquipo, PrecioEquipo, callback) => {
 				ResultadoPaga: () => (HorasEquipo[i]*PrecioEquipo[i]),
 				Contador: () => (i+1),
 				InfoHoras: () => (HorasEquipo[i]),
-				InfoPago: () => (PrecioEquipo[i])
+				InfoPago: () => (PrecioEquipo[i]),
+				InfoPersonas: () => (PrecioEquipo.length)
 			});
 		}
 	}

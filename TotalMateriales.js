@@ -1,3 +1,4 @@
+//Creación de Modulo
 module.exports = (PrecioMaterial, SumaProyecto, callback) => {
 	//Inicializando variables
 	var Controlador = 0;
@@ -5,6 +6,8 @@ module.exports = (PrecioMaterial, SumaProyecto, callback) => {
 	for(var i = 0; i < PrecioMaterial.length; i++){
 		//Callback con el mensaje de error
 		if (PrecioMaterial[i]<1) {
+			//Callback
+			//Manejo de errores
 			callback(new Error(
 				"\nNo es posible trabajar los pagos con saldo negativo.\n" +
 				"Por favor, verifique los datos ingresados."
@@ -18,6 +21,7 @@ module.exports = (PrecioMaterial, SumaProyecto, callback) => {
 	}
 	//Callback que contiene las operaciones a realizar
 	if (Controlador == 1) {
+		//Callback
 		callback(null, {
 			SumaMateriales: () =>
 			(SumaMaterial = PrecioMaterial.reduce((a, b)=> a + b, 0)),

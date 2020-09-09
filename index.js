@@ -18,14 +18,22 @@ PT = PrecioTotal
 function PrecioTotal(M, SP){
 	TotalMateriales(M, VTotalProyecto, (err, PT)=>{
 		if (err) {
-			console.log("¡ADVERTENCIA! ", err.message);
+			console.log(
+				"MANEJO DE ERRORES\n" +
+				"¡ADVERTENCIA! ", err.message);
 			console.log("\n");
 		}
 		else{
-			console.log("El precio total del proyecto es de: $" + VTotalProyecto);
-			console.log("Holgura: $" + VHolgura);
+			console.log(
+				"TERCER PUNTO: TOTAL DEL PROYECTO\n" +
+				"El precio total del proyecto es de: $" + VTotalProyecto);
+			console.log(
+				"\nSEGUNDO PUNTO: HOLGURA " + 
+				"\nHolgura: $" + VHolgura);
 			console.log("Precio total de los materiales es de $" + PT.SumaMateriales());
-			console.log("Precio total: $" + PT.SumaTotal());
+			console.log(
+				"\nCUARTO PUNTO: COSTO TOTAL (MATERIALES Y PAGA DE PERSONAS)\n" +
+				"Precio total (suma de los materiales y el coste del proyecto): $" + PT.SumaTotal());
 		}
 	});
 }
@@ -49,7 +57,9 @@ PaE = PagaEquipo
 function PagaEquipo(HE, PE){
 	InfoIndividual(HE, PE, (err, PaE)=>{
 		if (err) {
-			console.log("¡ADVERTENCIA! ", err.message);
+			console.log(
+				"MANEJO DE ERRORES\n" +
+				"¡ADVERTENCIA! ", err.message);
 		}
 		else{
 			console.log(
