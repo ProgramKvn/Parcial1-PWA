@@ -2,6 +2,7 @@
 module.exports = (PrecioMaterial, SumaProyecto, callback) => {
 	//Inicializando variables
 	var Controlador = 0;
+	var ST;
 	//Recorriendo el 'array'
 	for(var i = 0; i < PrecioMaterial.length; i++){
 		//Callback con el mensaje de error
@@ -24,9 +25,11 @@ module.exports = (PrecioMaterial, SumaProyecto, callback) => {
 		//Callback
 		callback(null, {
 			SumaMateriales: () =>
-			(SumaMaterial = PrecioMaterial.reduce((a, b)=> a + b, 0)),
+			(SM = SumaMaterial = PrecioMaterial.reduce((a, b)=> a + b, 0)),
 			SumaTotal: ()=>
-			(SumaProyecto + SumaMaterial)
+			(ST =SumaProyecto + SumaMaterial),
+			Holgura: () =>
+			(Holgura = ST * 0.08)
 		});
 	}
 }
